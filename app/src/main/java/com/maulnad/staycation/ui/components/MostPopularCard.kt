@@ -23,24 +23,11 @@ import com.maulnad.staycation.ui.theme.Gray
 import com.maulnad.staycation.ui.theme.White
 
 @Composable
-fun MostPopularCardSection(
-    items: List<MostPopular>
-) {
-    LazyColumn(modifier = Modifier
-        .padding(start = 20.dp, top = 10.dp, bottom = 50.dp)) {
-        items(items.size) {
-            MostPopularCardItem(item = items[it])
-        }
-    }
-}
-
-
-@Composable
 fun MostPopularCardItem(item: MostPopular) {
     Card(
         modifier = Modifier
-            .size(width = 335.dp, height = 97.dp)
-            .padding(bottom = 10.dp),
+            .size(width = 380.dp, height = 97.dp)
+            .padding(bottom = 10.dp, start = 20.dp),
         shape = RoundedCornerShape(10.dp),
         backgroundColor = White,
         elevation = 8.dp

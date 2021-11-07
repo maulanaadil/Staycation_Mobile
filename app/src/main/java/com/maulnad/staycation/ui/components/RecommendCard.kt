@@ -23,15 +23,7 @@ import com.maulnad.staycation.ui.theme.White
 fun RecommendCardSection(
     items: List<RecommendForYou>
 ) {
-    LazyRow(
-        modifier = Modifier
-            .fillMaxWidth(),
-        contentPadding = PaddingValues(start = 20.dp, end = 20.dp, bottom = 10.dp)
-    ) {
-        items(items.size) {
-            CardItemRecommend(item = items[it])
-        }
-    }
+
 
 }
 

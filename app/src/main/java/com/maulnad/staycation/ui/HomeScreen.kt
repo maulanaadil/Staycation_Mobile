@@ -4,8 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.ExperimentalComposeUiApi
@@ -24,15 +23,46 @@ import com.maulnad.staycation.utils.DummyData.recommendForYou
 
 @ExperimentalComposeUiApi
 @Composable
-fun HomeScreen() {
-    Box(
+fun HomeScreen(
+    items1: List<RecommendForYou>,
+    items2: List<MostPopular>
+) {
+    Column(
         modifier = Modifier
             .background(White)
             .fillMaxSize()
     ) {
-        Column {
-            HeaderSection()
-            BodySection()
+        LazyColumn() {
+            item {
+                HeaderSection()
+            }
+
+            item {
+                RecommendForYouText()
+            }
+
+            item {
+                LazyRow(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    contentPadding = PaddingValues(start = 20.dp, end = 20.dp, bottom = 10.dp)
+                ) {
+                    items(items1.size) {
+                        CardItemRecommend(item = items1[it])
+                    }
+                }
+            }
+
+            item {
+                MostPopularText()
+            }
+
+            items(items2.size) {
+                MostPopularCardItem(item = items2[it])
+            }
+            item {
+                Spacer(modifier = Modifier.padding(bottom = 50.dp))
+            }
         }
     }
 }
@@ -57,17 +87,9 @@ private fun HeaderSection() {
     EditTextSearch()
 }
 
-@Composable
-private fun BodySection() {
-    RecommendForYouText()
-    RecommendCardSection(items = recommendForYou)
-    MostPopularText()
-    MostPopularCardSection(items = mostPopular)
-}
-
 @ExperimentalComposeUiApi
 @Preview(name = "HomeScreen", showSystemUi = true, showBackground = true)
 @Composable
 private fun PreviewHomeScreen() {
-    HomeScreen()
+    HomeScreen(items1 = recommendForYou, items2 = mostPopular)
 }

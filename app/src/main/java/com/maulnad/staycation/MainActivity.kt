@@ -6,6 +6,8 @@ import androidx.activity.compose.setContent
 import androidx.compose.ui.ExperimentalComposeUiApi
 import com.maulnad.staycation.ui.HomeScreen
 import com.maulnad.staycation.ui.theme.StaycationTheme
+import com.maulnad.staycation.utils.DummyData.mostPopular
+import com.maulnad.staycation.utils.DummyData.recommendForYou
 
 class MainActivity : ComponentActivity() {
 
@@ -14,7 +16,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             StaycationTheme {
-                HomeScreen()
+                HomeScreen(items1 = recommendForYou, items2 = mostPopular)
             }
         }
     }
