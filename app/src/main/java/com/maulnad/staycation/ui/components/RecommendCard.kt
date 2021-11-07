@@ -16,7 +16,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.maulnad.staycation.RecommendForYou
+import com.maulnad.staycation.data.RecommendForYou
 import com.maulnad.staycation.ui.theme.White
 
 @Composable

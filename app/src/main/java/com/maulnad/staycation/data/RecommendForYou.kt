@@ -1,4 +1,4 @@
-package com.maulnad.staycation
+package com.maulnad.staycation.data
 
 import androidx.annotation.DrawableRes
 
